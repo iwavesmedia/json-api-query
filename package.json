@@ -4,6 +4,7 @@
   "description": "Elegant and simple way to build requests for JSON:API",
   "main": "build/index.js",
   "types": "./index.d.ts",
+  "files": ["*"],
   "scripts": {
     "build": "babel src -d build",
     "lint": "eslint --ext .js .",
