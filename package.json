@@ -6,10 +6,11 @@
   "types": "./index.d.ts",
   "files": ["src", "index.d.ts"],
   "scripts": {
+    "build": "babel src -d build",
     "lint": "eslint --ext .js .",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "coverage": "jest --coverage"
+    "test": "npm run build && jest",
+    "test:watch": "npm run build && jest --watch",
+    "coverage": "npm run build && jest --coverage"
   },
   "repository": {
     "type": "git",
