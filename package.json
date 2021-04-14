@@ -6,6 +6,7 @@
   "types": "./index.d.ts",
   "files": ["*"],
   "scripts": {
+    "prepare": "npm run build",
     "build": "babel src -d build",
     "lint": "eslint --ext .js .",
     "test": "jest",
