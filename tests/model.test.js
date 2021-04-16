@@ -1052,9 +1052,7 @@ describe('Model methods', () => {
   test('Model handles JSON:API responses correctly', async () => {
     axiosMock.onGet('http://localhost/articles').reply(200, jsonApiResponse)
 
-    const articles = await Article.all()
-    console.log(articles)
-    console.log(articles[0])
+    const articles = await Article.$all()
     expect(articles[0]).toBeInstanceOf(Article)
     expect(articles[0].author).toBeInstanceOf(Author)
     expect(articles[0].comments).toBeInstanceOf(Array)
