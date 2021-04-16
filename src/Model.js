@@ -352,7 +352,7 @@ export default class Model extends StaticModel {
     }
 
     const formatter = new Jsona()
-    const deserialized = formatter.deserialize(response);
+    const deserialized = formatter.deserialize(response)
     return {
       ...response,
       data: deserialized
