@@ -1,10 +1,10 @@
 import getProp from 'dotprop'
 import setProp from 'dset'
+import Jsona from 'jsona'
 import { serialize } from 'object-to-formdata'
 
 import Builder from './Builder'
 import StaticModel from './StaticModel'
-import Jsona from 'jsona'
 
 export default class Model extends StaticModel {
   constructor(...attributes) {

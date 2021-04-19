@@ -2,15 +2,15 @@
   "name": "json-api-query",
   "version": "0.0.0-development",
   "description": "Elegant and simple way to build requests for JSON:API",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "types": "./index.d.ts",
-  "files": ["src", "index.d.ts"],
+  "files": ["build", "src", "index.d.ts"],
   "scripts": {
     "build": "babel src -d build",
     "lint": "eslint --ext .js .",
-    "test": "npm run build && jest",
-    "test:watch": "npm run build && jest --watch",
-    "coverage": "npm run build && jest --coverage"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
