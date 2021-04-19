@@ -1,10 +1,14 @@
 {
-  "name": "json-api-query",
+  "name": "@iwavesmedia/json-api-query",
   "version": "0.0.0-development",
   "description": "Elegant and simple way to build requests for JSON:API",
   "main": "build/index.js",
   "types": "./index.d.ts",
-  "files": ["build", "src", "index.d.ts"],
+  "files": [
+    "build",
+    "src",
+    "index.d.ts"
+  ],
   "scripts": {
     "build": "babel src -d build",
     "lint": "eslint --ext .js .",
@@ -27,11 +31,7 @@
   ],
   "author": "IWAVES Medientechnik e.U.",
   "contributors": [
-    {
-      "name": "Josua Müller",
-      "email": "mueller.j.at@gmail.com",
-      "url": "https://github.com/hypnotox"
-    }
+    "Josua Müller <mueller.j.at@gmail.com> (https://github.com/hypnotox)"
   ],
   "license": "MIT",
   "bugs": {
@@ -67,5 +67,8 @@
     "jsona": "^1.8.0",
     "object-to-formdata": "^4.1.0",
     "qs": "^6.9.4"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
