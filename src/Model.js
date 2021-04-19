@@ -364,17 +364,21 @@ export default class Model extends StaticModel {
       return false
     }
 
-    let object
+    let obj
 
     if (Array.isArray(response.data)) {
-      object = response.data[0]
+      obj = response.data[0]
     } else {
-      object = response.data
+      obj = response.data
+    }
+
+    if (!obj) {
+      return false
     }
 
     return (
-      Object.hasOwnProperty.call(object, 'id') &&
-      Object.hasOwnProperty.call(object, 'type')
+      Object.hasOwnProperty.call(obj, 'id') &&
+      Object.hasOwnProperty.call(obj, 'type')
     )
   }
 
