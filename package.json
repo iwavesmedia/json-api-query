@@ -20,6 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/iwavesmedia/json-api-query.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "api",
     "rest",
