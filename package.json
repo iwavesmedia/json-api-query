@@ -1,6 +1,6 @@
 {
   "name": "@iwavesmedia/json-api-query",
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "description": "Elegant and simple way to build requests for JSON:API",
   "main": "build/index.js",
   "types": "./index.d.ts",
