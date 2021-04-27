@@ -183,7 +183,9 @@ export default class Model extends StaticModel {
       fields: 'fields',
       append: 'append',
       page: 'page',
-      limit: 'limit'
+      limit: 'limit',
+      pageNumber: 'page[number]',
+      pageSize: 'page[size]'
     }
   }
 
@@ -239,6 +241,18 @@ export default class Model extends StaticModel {
 
   limit(value) {
     this._builder.limit(value)
+
+    return this
+  }
+
+  pageNumber(value) {
+    this._builder.pageNumber(value)
+
+    return this
+  }
+
+  pageSize(value) {
+    this._builder.pageSize(value)
 
     return this
   }

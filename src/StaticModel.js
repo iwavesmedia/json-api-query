@@ -81,6 +81,20 @@ export default class StaticModel {
     return self
   }
 
+  static pageNumber(value) {
+    let self = this.instance()
+    self.pageNumber(value)
+
+    return self
+  }
+
+  static pageSize(value) {
+    let self = this.instance()
+    self.pageSize(value)
+
+    return self
+  }
+
   static custom(...args) {
     let self = this.instance()
     self.custom(...args)

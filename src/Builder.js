@@ -15,6 +15,8 @@ export default class Builder {
     this.pageValue = null
     this.limitValue = null
     this.payload = null
+    this.pageNumberValue = null
+    this.pageSizeValue = null
 
     this.fields = {}
     this.filters = {}
@@ -160,6 +162,26 @@ export default class Builder {
     }
 
     this.limitValue = value
+
+    return this
+  }
+
+  pageNumber(value) {
+    if (!Number.isInteger(value)) {
+      throw new Error('The VALUE must be an integer on pageNumber() method.')
+    }
+
+    this.pageNumberValue = value
+
+    return this
+  }
+
+  pageSize(value) {
+    if (!Number.isInteger(value)) {
+      throw new Error('The VALUE must be an integer on pageSize() method.')
+    }
+
+    this.pageSizeValue = value
 
     return this
   }
