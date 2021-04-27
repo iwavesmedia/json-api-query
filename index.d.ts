@@ -552,6 +552,22 @@ export class Model extends StaticModel {
   limit (number: number): this
 
   /**
+   * Set the current page.
+   *
+   * @see {@link https://robsontenorio.github.io/vue-api-query/api/query-builder-methods#page|API Reference}
+   * @see {@link https://robsontenorio.github.io/vue-api-query/building-the-query#paginating|Building the Query}
+   */
+  pageNumber (number: number): this
+
+  /**
+   * Set the page limit.
+   *
+   * @see {@link https://robsontenorio.github.io/vue-api-query/api/query-builder-methods#page|API Reference}
+   * @see {@link https://robsontenorio.github.io/vue-api-query/building-the-query#paginating|Building the Query}
+   */
+  pageSize (number: number): this
+
+  /**
    * Add custom parameters to the query.
    *
    * @see {@link https://robsontenorio.github.io/vue-api-query/api/query-builder-methods#params|API Reference}

@@ -21,6 +21,8 @@ export default class Parser {
     this.page()
     this.limit()
     this.payload()
+    this.pageNumber()
+    this.pageSize()
 
     return this.uri
   }
@@ -59,6 +61,14 @@ export default class Parser {
 
   hasLimit() {
     return this.builder.limitValue !== null
+  }
+
+  hasPageNumber() {
+    return this.builder.pageNumberValue !== null
+  }
+
+  hasPageSize() {
+    return this.builder.pageSizeValue !== null
   }
 
   hasPayload() {
@@ -144,6 +154,30 @@ export default class Parser {
       this.parameterNames().limit +
       '=' +
       this.builder.limitValue
+  }
+
+  pageNumber() {
+    if (!this.hasPageNumber()) {
+      return
+    }
+
+    this.uri +=
+      this.prepend() +
+      this.parameterNames().pageNumber +
+      '=' +
+      this.builder.pageNumberValue
+  }
+
+  pageSize() {
+    if (!this.hasPageSize()) {
+      return
+    }
+
+    this.uri +=
+      this.prepend() +
+      this.parameterNames().pageSize +
+      '=' +
+      this.builder.pageSizeValue
   }
 
   payload() {

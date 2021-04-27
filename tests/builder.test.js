@@ -228,6 +228,38 @@ describe('Query builder', () => {
     )
   })
 
+  test('pageNumber() sets properly the builder', () => {
+    let post = Post.pageNumber(3)
+
+    expect(post._builder.pageNumberValue).toEqual(3)
+  })
+
+  test('pageNumber() throws a exception when value is not a number', () => {
+    errorModel = () => {
+      Post.pageNumber('foo')
+    }
+
+    expect(errorModel).toThrow(
+      'The VALUE must be an integer on pageNumber() method.'
+    )
+  })
+
+  test('pageSize() sets properly the builder', () => {
+    let post = Post.pageSize(10)
+
+    expect(post._builder.pageSizeValue).toEqual(10)
+  })
+
+  test('pageSize() throws a exception when value is not a number', () => {
+    errorModel = () => {
+      Post.pageSize('foo')
+    }
+
+    expect(errorModel).toThrow(
+      'The VALUE must be an integer on pageSize() method.'
+    )
+  })
+
   test('select() with no parameters', () => {
     errorModel = () => {
       Post.select()
