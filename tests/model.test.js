@@ -925,6 +925,19 @@ describe('Model methods', () => {
     await post.save()
   })
 
+  test('for() method reset works without resource', async () => {
+    axiosMock.onPost().reply((config) => {
+      expect(config.method).toEqual('post')
+      expect(config.url).toEqual('http://localhost/posts')
+
+      return [200, {}]
+    })
+
+    const post = new Post({ text: 'Hello' })
+    post.for(null)
+    await post.save()
+  })
+
   test('Calling for() with multiple arguments produces the correct URL', () => {
     const user = new User({ id: 1 })
     const post = new Post({ id: 2 })

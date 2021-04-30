@@ -120,7 +120,7 @@ export default class Model extends StaticModel {
       throw new Error('The for() method takes a minimum of one argument.')
     }
 
-    if (args[0] === null && this._fromResource) {
+    if (args[0] === null) {
       this._from(null)
       return
     }
