@@ -117,6 +117,11 @@ export default class Model extends StaticModel {
       throw new Error('The for() method takes a minimum of one argument.')
     }
 
+    if (args[0] === null && this._fromResource) {
+      delete this._fromResource
+      return
+    }
+
     let url = `${this.baseURL()}`
 
     args.forEach((object) => {
