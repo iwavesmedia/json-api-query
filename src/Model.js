@@ -109,7 +109,10 @@ export default class Model extends StaticModel {
   }
 
   _from(url) {
-    Object.defineProperty(this, '_fromResource', { get: () => url })
+    Object.defineProperty(this, '_fromResource', {
+      get: () => url,
+      configurable: true
+    })
   }
 
   for(...args) {

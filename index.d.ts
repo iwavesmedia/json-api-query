@@ -698,12 +698,12 @@ export class Model extends StaticModel {
    */
 
   /**
-   * Create a new related model.
+   * Link to or remove from related model.
    *
    * @see {@link https://robsontenorio.github.io/vue-api-query/api/relationship-operations#for|API Reference}
    * @see {@link https://robsontenorio.github.io/vue-api-query/performing-operations#creating-related-models|Performing Operations}
    */
-  for (...models: Model[]): this
+  for (...models: Model[]|null): this
 
   /**
    * Create a new related model.
