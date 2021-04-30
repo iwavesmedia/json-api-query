@@ -118,7 +118,7 @@ export default class Model extends StaticModel {
     }
 
     if (args[0] === null && this._fromResource) {
-      delete this._fromResource
+      this._from(null)
       return
     }
 
