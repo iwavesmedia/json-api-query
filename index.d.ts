@@ -703,7 +703,7 @@ export class Model extends StaticModel {
    * @see {@link https://robsontenorio.github.io/vue-api-query/api/relationship-operations#for|API Reference}
    * @see {@link https://robsontenorio.github.io/vue-api-query/performing-operations#creating-related-models|Performing Operations}
    */
-  for (...models: Model[]|null): this
+  for (model: Model|null, ...models: Model[]): this
 
   /**
    * Create a new related model.
