@@ -2830,6 +2830,11 @@
     "is-descriptor" "^1.0.2"
     "isobject" "^3.0.1"
 
+"defu@^5.0.0":
+  "integrity" "sha512-VHg73EDeRXlu7oYWRmmrNp/nl7QkdXUxkQQKig0Zk8daNmm84AbGoC8Be6/VVLJEKxn12hR0UBmz8O+xQiAPKQ=="
+  "resolved" "https://registry.npmjs.org/defu/-/defu-5.0.0.tgz"
+  "version" "5.0.0"
+
 "del@^6.0.0":
   "integrity" "sha512-1shh9DQ23L16oXSZKB2JxpL7iMy2E0S9d517ptA1P8iw0alkPtQcrKH7ru31rYtKwF499HkTu+DRzq3TCKDFRQ=="
   "resolved" "https://registry.npmjs.org/del/-/del-6.0.0.tgz"

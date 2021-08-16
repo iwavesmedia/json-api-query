@@ -417,7 +417,6 @@ describe('Model methods', () => {
 
     axiosMock.onAny().reply((config) => {
       const _post = post
-      delete _post._config
 
       expect(config.method).toEqual('patch')
       expect(config.data).toEqual(JSON.stringify(_post))
@@ -455,7 +454,6 @@ describe('Model methods', () => {
 
     axiosMock.onAny().reply((config) => {
       const _post = post
-      delete _post._config
 
       expect(config.method).toEqual('post')
       expect(config.data).toEqual(JSON.stringify(_post))
@@ -575,7 +573,6 @@ describe('Model methods', () => {
     axiosMock.onAny().reply((config) => {
       let _data
       const _post = post
-      delete _post._config
 
       if (config.headers['Content-Type'] === 'multipart/form-data') {
         _data = Object.fromEntries(config.data)
@@ -637,7 +634,6 @@ describe('Model methods', () => {
     axiosMock.onAny().reply((config) => {
       let _data
       const _post = post
-      delete _post._config
 
       if (config.headers['Content-Type'] === 'multipart/form-data') {
         _data = JSON.stringify(Object.fromEntries(config.data))
@@ -951,7 +947,7 @@ describe('Model methods', () => {
     )
   })
 
-  test('it throws an error when for() method does not receive a instance of Model', () => {
+  test('it throws an error when for() method does not receive an instance of Model', () => {
     errorModel = () => {
       new Post({ text: 'Hello' }).for()
     }
@@ -1075,6 +1071,51 @@ describe('Model methods', () => {
 
     comment.text = 'Hola!'
     await comment.save()
+  })
+
+  test('config() method can change request config', async () => {
+    axiosMock.onGet('http://localhost/posts').reply((config) => {
+      expect(config.params).toEqual({
+        foo: 'bar'
+      })
+
+      return [200, postsResponse]
+    })
+
+    const posts = await Post.config({
+      params: {
+        foo: 'bar'
+      }
+    }).get()
+
+    posts.forEach((post) => {
+      expect(post).toBeInstanceOf(Post)
+      expect(post.user).toBeInstanceOf(User)
+      post.relationships.tags.forEach((tag) => {
+        expect(tag).toBeInstanceOf(Tag)
+      })
+    })
+  })
+
+  test('config() method can merge request config recursively', async () => {
+    let post
+
+    axiosMock.onAny().reply((config) => {
+      const _post = { ...post, foo: 'bar' }
+
+      expect(config.data).toEqual(JSON.stringify(_post))
+
+      return [200, {}]
+    })
+
+    post = new Post({ id: 1, title: 'Cool!' })
+    await post
+      .config({
+        data: {
+          foo: 'bar'
+        }
+      })
+      .save()
   })
 
   test('Model handles JSON:API responses correctly', async () => {

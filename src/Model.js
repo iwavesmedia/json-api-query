@@ -1,3 +1,4 @@
+import defu from 'defu'
 import getProp from 'dotprop'
 import setProp from 'dset'
 import Jsona from 'jsona'
@@ -39,7 +40,8 @@ export default class Model extends StaticModel {
   }
 
   config(config) {
-    this._config = config
+    Object.defineProperty(this, '_config', { get: () => config })
+
     return this
   }
 
@@ -327,7 +329,8 @@ export default class Model extends StaticModel {
   }
 
   _reqConfig(config, options = { forceMethod: false }) {
-    const _config = { ...config, ...this._config }
+    // Merge config, recursively. Leftmost arguments have more priority.
+    const _config = defu(this._config, config)
 
     // Prevent default request method from being overridden
     if (options.forceMethod) {
@@ -336,11 +339,6 @@ export default class Model extends StaticModel {
 
     // Check if config has data
     if ('data' in _config) {
-      // Ditch private data
-      _config.data = Object.fromEntries(
-        Object.entries(_config.data).filter(([key]) => !key.startsWith('_'))
-      )
-
       const _hasFiles = Object.keys(_config.data).some((property) => {
         if (Array.isArray(_config.data[property])) {
           return _config.data[property].some((value) => value instanceof File)

@@ -65,6 +65,7 @@
     "semantic-release": "^17.2.2"
   },
   "dependencies": {
+    "defu": "^5.0.0",
     "dotprop": "^1.2.0",
     "dset": "^2.0.1",
     "jsona": "^1.8.0",
